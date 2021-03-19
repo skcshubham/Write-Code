@@ -9,6 +9,7 @@ body {
 
 .pane {
 	height: 50vh;
+	width: 100vw;
 	display: flex;
 }
 
@@ -62,7 +63,15 @@ body {
 
 /* annotation */
 
+.bottom-pane {
+	position: relative;
+}
+
 .annotation-container {
+	position: absolute;
+	top: 0%;
+	left: 50%;
+	transform: translateX(-50%);
 	color: white;
 	font-size: 1.2rem;
 	padding: 0rem 2rem;
@@ -74,7 +83,6 @@ body {
 	border-bottom-right-radius: 0.5rem;
 	display: block;
 	margin: 0 auto;
-	margin-left: 38%;
 }
 
 .annotation-container span {
