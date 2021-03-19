@@ -1,13 +1,61 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.top-pane {
+	/* background color set to dark shade of editor color */
+	background-color: hsl(255, 6%, 25%);
+}
+
+.pane {
+	height: 50vh;
+	display: flex;
+}
+
+.Editor-container {
+	flex-grow: 1; /* editor takes entire screen space horizontally*/
+	flex-basis: 0; /* all editor box of same size */
+	display: flex; /* we have to write code from top to bottom */
+	flex-direction: column; /* hence we set flex direction to column*/
+	padding: 0.5rem; /* adding padding around the each language editor */
+	background-color: hsl(255, 6%, 25%);
+}
+
+.Editor-title {
+	color: whitesmoke;
+	padding: 0.5rem 0.5rem 0.5rem 1rem; /* padding around everything */
+	display: flex;
+	justify-content: space-between; /* pushing the text to far left and button to the extreme right */
+	background-color: hsl(
+		255,
+		6%,
+		15%
+	); /* setting background to darker shade of background color*/
+	border-top-right-radius: 0.5rem; /* rounded top border of text editor*/
+	border-top-left-radius: 0.5rem;
+}
+
+.CodeMirror {
+	height: 100% !important; /* editor fills the entire screen when chrome is zoomed in and out */
+}
+
+.code-mirror-wrapper {
+	flex-grow: 1;
+	border-bottom-right-radius: 0.5rem; /* rounded bottom border of text editor*/
+	border-bottom-left-radius: 0.5rem;
+	overflow: hidden; /* overflow of text in editor remains hidden */
+}
+
+.Editor-container.collapsed {
+	flex-grow: 0;
+}
+
+.Editor-container.collapsed .CodeMirror-scroll {
+	position: absolute;
+	overflow: hidden !important;
+}
+
+.expand-collapse-btn {
+	cursor: pointer;
+	margin-left: 0.5rem;
 }
