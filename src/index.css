@@ -59,3 +59,36 @@ body {
 	cursor: pointer;
 	margin-left: 0.5rem;
 }
+
+/* annotation */
+
+.annotation-container {
+	color: white;
+	font-size: 1.2rem;
+	padding: 0rem 2rem;
+	height: fit-content;
+	font-weight: 600;
+	background: #1f2023;
+	text-align: center;
+	border-bottom-left-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+	display: block;
+	margin: 0 auto;
+	margin-left: 38%;
+}
+
+.annotation-container span {
+	color: #fa1919;
+	font-size: 1.8rem;
+}
+
+.annotation-container a {
+	color: white;
+	text-decoration: none;
+	margin-left: 0.4rem;
+	transition: opacity 250ms linear;
+}
+
+.annotation-container a:hover {
+	opacity: 0.8;
+}

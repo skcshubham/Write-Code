@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Editor from "./Editor";
 import useLocalStorage from "../hooks/useLocalStorage";
+import Annotation from "./Annotation";
 
 function App() {
 	// Hooks for storing state in functional components. initially we set state to empty as out code is empty
@@ -8,6 +9,11 @@ function App() {
 	const [css, setCss] = useLocalStorage("css", "");
 	const [js, setJs] = useLocalStorage("js", "");
 	const [srcDoc, setSrcDoc] = useState("");
+	let annotate = true;
+
+	if (html !== "" || css !== "" || js !== "") {
+		annotate = false;
+	}
 
 	// we set a timeout of 750 ms because our code editor will refresh
 	// after every change in code editor and hence it may cause overhead
@@ -17,11 +23,18 @@ function App() {
 			// code which renders in bottom pane is stored here
 			// we put this variable in iframe as srcDoc
 			setSrcDoc(`
-				<html>
-					<body>${html}</body>
-					<style>${css}</style>
-					<script>${js}</script>
-				</html>	
+			<!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <style>
+          ${css}
+        </style>
+      </head>
+      <body>
+        ${html}
+        <script> ${js} </script>
+      </body>
+      </html>
 			`);
 		}, 750);
 
@@ -51,18 +64,23 @@ function App() {
 					onChange={setJs}
 				/>
 			</div>
-			{/* for the bottom result view pane*/}
-			<div className="pane">
-				{/** Inline frame or iframe is used to embed
-				 * another document within the current HTML document. */}
-				<iframe
-					srcDoc={srcDoc}
-					title="output"
-					sandbox="allow-scripts" // for security
-					frameBorder="0"
-					width="100%"
-					height="100%"
-				/>
+
+			<div className="pane bottom-pane">
+				{annotate ? <Annotation /> : ""}
+
+				{/* for the bottom result view pane*/}
+				<div className="pane">
+					{/** Inline frame or iframe is used to embed
+					 * another document within the current HTML document. */}
+					<iframe
+						srcDoc={srcDoc}
+						title="output"
+						sandbox="allow-scripts" // for security
+						frameBorder="0"
+						width="100%"
+						height="100%"
+					/>
+				</div>
 			</div>
 		</React.Fragment>
 	);
