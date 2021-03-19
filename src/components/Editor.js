@@ -18,7 +18,7 @@ function Editor(props) {
 	// state to open and close tabs of editor
 	const [open, setOpen] = useState(true);
 
-	function handleChange(editr, data, value) {
+	function handleChange(editor, data, value) {
 		onChange(value);
 	}
 
