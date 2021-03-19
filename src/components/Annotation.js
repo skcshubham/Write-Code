@@ -14,7 +14,7 @@ export default function Annotation() {
 					target="_blank"
 					rel="noreferrer"
 				>
-					Shubham Kumar
+					Shubham
 				</a>
 			</p>
 		</div>

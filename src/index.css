@@ -1,5 +1,6 @@
 body {
 	margin: 0;
+	font-family: "Courier New", Courier, monospace;
 }
 
 .top-pane {
@@ -68,19 +69,20 @@ body {
 }
 
 .annotation-container {
+	letter-spacing: 2px;
 	position: absolute;
 	top: 0%;
 	left: 50%;
 	transform: translateX(-50%);
 	color: white;
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	padding: 0rem 2rem;
 	height: fit-content;
 	font-weight: 600;
 	background: #1f2023;
 	text-align: center;
-	border-bottom-left-radius: 0.5rem;
-	border-bottom-right-radius: 0.5rem;
+	border-bottom-left-radius: 0.6rem;
+	border-bottom-right-radius: 0.6rem;
 	display: block;
 	margin: 0 auto;
 }
