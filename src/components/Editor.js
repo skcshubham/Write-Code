@@ -2,11 +2,13 @@ import React, { useState } from "react";
 // codemirror default styles and material theme
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
+
 // importing languages that editor is going to use
 import "codemirror/mode/xml/xml";
 import "codemirror/mode/javascript/javascript.js";
 import "codemirror/mode/css/css";
-// importing editor component which we can control input and output with onChange event handler
+
+// importing editor component on which we can control input and output with onChange event handler and our own values like input in html
 import { Controlled as ControlledEditor } from "react-codemirror2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCompressAlt, faExpandAlt } from "@fortawesome/free-solid-svg-icons";
@@ -24,6 +26,7 @@ function Editor(props) {
 
 	return (
 		<React.Fragment>
+			{/* Top panel of each editor like name and icon */}
 			<div className={`Editor-container ${open === true ? "" : "collapsed"}`}>
 				<div className="Editor-title">
 					{displayName}
@@ -36,6 +39,7 @@ function Editor(props) {
 						/>
 					</button>
 				</div>
+				{/* React Codemirror2 component */}
 				<ControlledEditor
 					onBeforeChange={handleChange}
 					value={value}

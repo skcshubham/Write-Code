@@ -15,7 +15,7 @@ function App() {
 		annotate = false;
 	}
 
-	// we set a timeout of 750 ms because our code editor will refresh
+	// we set a timeout of 100 ms because our code editor will refresh
 	// after every change in code editor and hence it may cause overhead
 
 	useEffect(() => {
@@ -36,14 +36,14 @@ function App() {
       </body>
       </html>
 			`);
-		}, 750);
+		}, 1000);
 
 		return () => clearTimeout(timeout);
 	}, [html, css, js]);
 
 	return (
 		<React.Fragment>
-			{/* for the top html, css and js panes*/}
+			{/* for the top html, css and js columns*/}
 			<div className="pane top-pane">
 				<Editor
 					language="xml"
@@ -65,17 +65,18 @@ function App() {
 				/>
 			</div>
 
+			{/* for the bottom result view pane*/}
+
 			<div className="pane bottom-pane">
 				{annotate ? <Annotation /> : ""}
 
-				{/* for the bottom result view pane*/}
 				<div className="pane">
 					{/** Inline frame or iframe is used to embed
 					 * another document within the current HTML document. */}
 					<iframe
 						srcDoc={srcDoc}
 						title="output"
-						sandbox="allow-scripts" // for security
+						sandbox="allow-scripts" // for security does not allow malicious code which access cookies or etc
 						frameBorder="0"
 						width="100%"
 						height="100%"
