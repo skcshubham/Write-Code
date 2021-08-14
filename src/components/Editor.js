@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCompressAlt, faExpandAlt } from "@fortawesome/free-solid-svg-icons";
 
 function Editor(props) {
-	// destructuring from passed props
+	// destructuring the passed props
 	const { language, displayName, value, onChange } = props;
 
 	// state to open and close tabs of editor
@@ -32,7 +32,7 @@ function Editor(props) {
 					{displayName}
 					<button
 						className="expand-collapse-btn"
-						onClick={() => setOpen((prevOpen) => !prevOpen)}
+						onClick={() => setOpen((prevOpen) => !prevOpen)} // invert open and non open when clicked
 					>
 						<FontAwesomeIcon
 							icon={open === true ? faCompressAlt : faExpandAlt}
@@ -41,10 +41,11 @@ function Editor(props) {
 				</div>
 				{/* React Codemirror2 component */}
 				<ControlledEditor
-					onBeforeChange={handleChange}
-					value={value}
+					onBeforeChange={handleChange} // change handler like onChange
+					value={value} // setting value
 					className="code-mirror-wrapper"
 					options={{
+						// options is from codemirror library
 						lineWrapping: true,
 						lint: true,
 						mode: language,

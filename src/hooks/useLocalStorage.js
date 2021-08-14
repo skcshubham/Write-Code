@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 // to know which app is using local storage
-const PREFIX = "online-text-editor-";
+const PREFIX = "write-code-project-";
 
 // initial value is the original value in our text editor
 function useLocalStorage(key, initialValue) {

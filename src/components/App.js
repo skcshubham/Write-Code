@@ -15,7 +15,7 @@ function App() {
 		annotate = false;
 	}
 
-	// we set a timeout of 100 ms because our code editor will refresh
+	// we set a timeout of 1s because our code editor will refresh
 	// after every change in code editor and hence it may cause overhead
 
 	useEffect(() => {
@@ -38,6 +38,8 @@ function App() {
 			`);
 		}, 1000);
 
+		// if we updated html, css or js within 1000 ms, we dont want to create multiple setTImeout
+		// we clear the previous timeout by passing the returned integer by set TImeout and create a new timeout
 		return () => clearTimeout(timeout);
 	}, [html, css, js]);
 
@@ -45,7 +47,7 @@ function App() {
 		<React.Fragment>
 			{/* for the top html, css and js columns*/}
 			<div className="pane top-pane">
-				<Editor
+				<Editor // passing as props
 					language="xml"
 					displayName="HTML"
 					value={html}
