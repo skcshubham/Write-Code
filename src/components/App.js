@@ -4,10 +4,11 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import Annotation from "./Annotation";
 
 function App() {
-	// Hooks for storing state in functional components. initially we set state to empty as out code is empty
+	// Calling custom hook to save data to our local storage
 	const [html, setHtml] = useLocalStorage("html", "");
 	const [css, setCss] = useLocalStorage("css", "");
 	const [js, setJs] = useLocalStorage("js", "");
+	// state to pass the html document to the iframe on srcDoc attribute
 	const [srcDoc, setSrcDoc] = useState("");
 	let annotate = true;
 
