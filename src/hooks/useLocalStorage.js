@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 // to know which app is using local storage
 const PREFIX = "write-code-project-";
 
-// initial value is the original value in our text editor
+// initial value is the default state in our text editor
 function useLocalStorage(key, initialValue) {
 	const prefixedKey = PREFIX + key;
 
